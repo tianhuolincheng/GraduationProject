@@ -8,21 +8,21 @@ import sim.util.MutableDouble2D;
 
 public class Roommate_print implements Steppable
 {
-    public int dormNum = -1;
-    public Bag myDorm = new Bag();
+    public int dormNum = -1; // The number of this agent's dorm.
+    public Bag myDorm = new Bag(); // Stores all roommate agents in this agent's dorm
 
     public double[][][] action_value = new double[5][4][4]; // 5 time points; 4 values; 4 alternative actions.
     // initialize the action_value array:
 
     public double[][] value_weights = new double[5][4]; // 5 time points; 4 values.
 
-    public int norm_TimePoint = -1;
+    public int norm_TimePoint = -1; // The time point for this agent's norm
 
-    public int norm_Activity = -1;
+    public int norm_Activity = -1; // The activity for this agent's norm
 
-    public double[] utility = new double[2000];
-    public double[] utility_primary = new double[2000];
-    public double[] utility_conservative = new double[2000];
+    public double[] utility = new double[2000]; // Utility record for ELESSAR strategy
+    public double[] utility_primary = new double[2000]; // Utility record for primary strategy
+    public double[] utility_conservative = new double[2000]; // Utility record for conservative strategy
     public int current_num = 0;
 
     public void step(SimState state) {
@@ -30,7 +30,7 @@ public class Roommate_print implements Steppable
         double rand_num = roommates_print.random.nextDouble();
         int time_point = -1;
 
-        // Define Threshold;
+        // Define Threshold for later usage;
         double threshold_1_outof_4 = 0.75;
         double threshold_2_outof_4 = 0.5;
         double threshold_3_outof_4 = 0.25;

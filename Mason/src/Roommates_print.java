@@ -12,18 +12,18 @@ import java.util.Collections;
 
 public class Roommates_print extends SimState
 {
-    public int numRoommates = 1000;
-    public Bag allRoommates = new Bag();
+    public int numRoommates = 1000; // Sample 1000 roommate agents in total.
+    public Bag allRoommates = new Bag(); // All roommate agents are stored here.
     public Roommates_print(long seed)
     {
         super(seed);
     }
     public int temp_num_for_output = 0;
-    public double[][] utility_record = new double[numRoommates][2000];
-    public double[][] utility_record_primary = new double[numRoommates][2000];
-    public double[][] utility_record_conservative = new double[numRoommates][2000];
+    public double[][] utility_record = new double[numRoommates][2000]; // Utility record for ELESSAR strategy
+    public double[][] utility_record_primary = new double[numRoommates][2000]; // Utility record for primary strategy
+    public double[][] utility_record_conservative = new double[numRoommates][2000]; // Utility record for conservative strategy
 
-    public double[] utility_distri = new double[10000];
+    public double[] utility_distri = new double[10000]; // Check utility distribution
     public int distri_num = 0;
 
     public void start(){
@@ -37,7 +37,7 @@ public class Roommates_print extends SimState
             roommate_print.dormNum = (int)(i/2);
             allRoommates.add(roommate_print);
 
-            // Define Threshold;
+            // Define Threshold for later usage;
             double threshold_1_outof_4 = 0.75;
             double threshold_2_outof_4 = 0.5;
             double threshold_3_outof_4 = 0.25;
